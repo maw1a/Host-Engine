@@ -1,0 +1,26 @@
+{
+    "name": "Host Engine",
+    "version": "1.0",
+    "description": "Decentralized Web Hosting",
+    "permissions": ["activeTab","declarativeContent", "storage", "tabs"],
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "browser_action": {
+        "default_popup": "popup.html",
+        "default_icon": "images/logo.png"
+    },
+    "content_scripts" : [{
+        "matches" : [ "https://cdn.jsdelivr.net/*","https://code.jquery.com/*"],
+        "js" : ["js/index.min.js"]
+    }],
+    "icons": {
+        "16": "images/logo.png",
+        "32": "images/logo.png",
+        "48": "images/logo.png",
+        "128": "images/logo.png"
+    },
+    "content_security_policy": "script-src 'self' 'sha256-WOdSzz11/3cpqOdrm89LBL2UPwEU9EhbDtMy2OciEhs=' 'unsafe-eval' https://cdn.jsdelivr.net https://code.jquery.com https://cdnjs.cloudflare.com https://use.fontawesome.com; object-src 'self'",
+    "manifest_version": 2
+  }
